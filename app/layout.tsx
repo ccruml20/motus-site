@@ -3,13 +3,20 @@ import "./grain.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
-export const metadata: Metadata = {
-  robots: {
-    index: process.env.VERCEL_ENV === "production",
-    follow: process.env.VERCEL_ENV === "production",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const host = (await headers()).get("host") || "";
+  const isOfficialDomain =
+    host === "motusdesigns.com" || host.endsWith(".motusdesigns.com");
+
+  return {
+    robots: {
+      index: isOfficialDomain,
+      follow: isOfficialDomain,
+    },
+  };
+}
 
 
 export default function RootLayout({
