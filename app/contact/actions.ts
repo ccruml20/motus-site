@@ -1,45 +1,35 @@
 "use server";
 
 import { Resend } from "resend";
+import { redirect } from "next/navigation";
 
-function getEnv(name: string) {
+function env(name: string) {
   const v = process.env[name];
   if (!v) throw new Error(`Missing env var: ${name}`);
   return v;
 }
 
-export async function sendContactEmail(_: any, formData: FormData) {
-  try {
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
+export async function sendContactEmail(formData: FormData) {
+  console.log("[contact] ACTION HIT");
 
-    const company = String(formData.get("company") ?? "").trim();
-    if (company) return { ok: true as const }; // bot trap
+  const name = String(formData.get("name") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const message = String(formData.get("message") ?? "").trim();
 
-    if (!name || !email || !message) {
-      return { ok: false as const, error: "Please fill out all fields." };
-    }
+  if (!name || !email || !message) redirect("/contact?sent=0");
 
-    const resend = new Resend(getEnv("RESEND_API_KEY"));
-    const to = getEnv("CONTACT_TO_EMAIL");
-    const from = getEnv("CONTACT_FROM_EMAIL");
+  const resend = new Resend(env("RESEND_API_KEY"));
 
-    console.log("[contact] sending", { to, from, name, email });
+  const result = await resend.emails.send({
+    from: env("CONTACT_FROM_EMAIL"),
+    to: env("CONTACT_TO_EMAIL"),
+    replyTo: email,
+    subject: `Motus Inquiry — ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\n\n${message}\n`,
+  });
 
-    const result = await resend.emails.send({
-      from,
-      to,
-      replyTo: email,
-      subject: `Motus Inquiry — ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`,
-    });
+  console.log("[contact] RESEND RESULT", result);
 
-    console.log("[contact] resend result", result);
-
-    return { ok: true as const };
-  } catch (err: any) {
-    console.error("[contact] ERROR", err);
-    return { ok: false as const, error: err?.message ?? "Email failed to send." };
-  }
+  redirect("/contact?sent=1");
 }
+
