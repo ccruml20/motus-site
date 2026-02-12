@@ -45,7 +45,7 @@ export default function Footer() {
             </p>
             <div className="mt-6 text-motusMuted text-sm space-y-2">
               <p>info@motusdesignstudio.com</p>
-              <p>Blue Ridge, Georgia</p>
+              <p>Marietta, Georgia</p>
             </div>
           </div>
         </div>
