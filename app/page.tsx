@@ -1,6 +1,9 @@
 import Container from "@/components/Container";
 import NextImage from "next/image";
 import SectionLabel from "@/components/SectionLabel";
+import ServiceCards from "@/components/ServiceCards";
+import { serviceCards } from "@/components/serviceData";
+
 
 
 
@@ -48,36 +51,23 @@ export default function Home() {
 
         <Container className="relative">
           <SectionLabel>Our Services</SectionLabel>
-          <div className="relative">
-            {/* divider + label */}
-          
-            <h2 className="font-heading mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light">
-              Thoughtfully Designed Interiors Tailored to You
-            </h2>
 
-            <p className="mt-6 max-w-2xl text-sm md:text-base text-motusHeading/65">
-              From concept to completion, we create timeless interiors that balance beauty,
-              functionality, and architectural harmony.
-            </p>
+          <h2 className="font-heading mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+            Design for Hotels, Restaurants, Bars, Retail, and Corporate Environments
+          </h2>
 
-            {/* cards */}
-            <div className="mt-16 grid gap-8 md:grid-cols-3">
-              <ServiceCard
-                title="Full-Service Interior Design"
-                body="Comprehensive design solutions from concept development to final installation."
-              />
-              <ServiceCard
-                title="Renovation & Remodel Styling"
-                body="Elevating existing spaces with thoughtful material and layout selections."
-              />
-              <ServiceCard
-                title="Furniture & Styling Consultation"
-                body="Curated furniture, lighting, and decor selections to complete your space."
-              />
-            </div>
+          <p className="mt-6 max-w-2xl text-motusMuted leading-relaxed">
+            Commercial interiors shaped by brand clarity, guest experience, and operational performance.
+          </p>
+
+          {/* Reusable Service Cards */}
+          <div className="mt-12">
+            <ServiceCards items={serviceCards} variant="home" />
+
           </div>
         </Container>
       </section>
+
       {/* FEATURED PROJECTS */}
       <section className="py-32 bg-motusBg">
         <Container>

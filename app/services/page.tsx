@@ -1,179 +1,117 @@
 import Container from "@/components/Container";
 import SectionLabel from "@/components/SectionLabel";
+import ServiceCards from "@/components/ServiceCards";
+import { serviceCards } from "@/components/serviceData";
 import Link from "next/link";
 
-const services = [
-  {
-    title: "Full-Service Interior Design",
-    body:
-      "A comprehensive design experience—from concept through installation. Ideal for clients who want a cohesive vision, sourcing support, and a guided process end-to-end.",
-    includes: [
-      "Discovery + design direction",
-      "Space planning + layout refinements",
-      "Material + finish selections",
-      "Furniture + lighting + decor sourcing",
-      "Vendor coordination + install styling",
-    ],
-  },
-  {
-    title: "Renovation & Remodel Styling",
-    body:
-      "Design support for renovations and remodels—focused on material cohesion, finishes, fixtures, and elevating the final look with intentional styling.",
-    includes: [
-      "Finish palette + selection guidance",
-      "Cabinetry + tile + countertop coordination",
-      "Fixture + hardware curation",
-      "Paint/stain + trim direction",
-      "Final styling recommendations",
-    ],
-    featured: true,
-  },
-  {
-    title: "Furniture & Styling Consultation",
-    body:
-      "For clients who want a refreshed space without a full remodel. We help you edit, refine, and curate—keeping what works and elevating what doesn’t.",
-    includes: [
-      "Room edit + recommendations",
-      "Furniture plan + sourcing list",
-      "Lighting + art + decor direction",
-      "Color + texture balance guidance",
-      "Styling plan for the finishing touches",
-    ],
-  },
-];
-
-const steps = [
+const processSteps = [
   {
     title: "Discovery",
-    body: "We start with goals, inspiration, budget range, and timeline—then define the scope and design direction.",
+    body: "We define goals, guest experience, brand tone, scope, and timeline—then align on priorities and budget ranges.",
   },
   {
-    title: "Concept",
-    body: "Layout + mood + materials take shape. You’ll see the design intent clearly before we commit to selections.",
+    title: "Concept + Direction",
+    body: "We develop the design story: spatial flow, mood, materials, and key moments that shape the experience.",
   },
   {
     title: "Design Development",
-    body: "We finalize the palette, key materials, and specifications—making sure every decision supports the whole.",
+    body: "We refine layouts, specifications, and selections—ensuring every decision supports the full concept.",
   },
   {
-    title: "Sourcing & Coordination",
-    body: "We organize selections, lead times, and procurement—coordinating with vendors and trades as needed.",
+    title: "Coordination",
+    body: "We coordinate selections and documentation for vendors and trades, keeping the process organized and cohesive.",
   },
   {
-    title: "Install & Styling",
-    body: "The final layer: placement, balance, and the details that make a space feel calm, finished, and lived-in.",
+    title: "Install + Styling",
+    body: "Final layer and finish: placement, balance, and details that make the space feel complete and intentional.",
   },
 ];
 
 export default function ServicesPage() {
   return (
     <main className="bg-motusBg text-white">
-      {/* INTRO */}
-      <section className="pt-36 pb-20">
+
+      {/* HEADER (tight + editorial) */}
+      <section className="pt-36 pb-16">
         <Container>
           <SectionLabel>Services</SectionLabel>
 
-          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-5xl">
-            Design services built around clarity, calm, and timeless materiality.
+          <h1 className="mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-4xl leading-[1.08]">
+            Design for Hotels, Restaurants, Bars, Retail, and Corporate environments.
           </h1>
 
-          <p className="mt-6 text-motusMuted max-w-2xl">
-            Choose the level of support you need—whether it’s full-service design or a focused refresh.
+          <p className="mt-6 text-motusMuted max-w-2xl leading-relaxed">
+            Commercial interiors shaped by brand clarity, guest experience, and operational performance.
           </p>
-
-          <div className="mt-10">
-            <Link
-              href="/contact"
-              className="inline-block bg-motusGold text-black px-10 py-4 text-xs md:text-sm tracking-[0.18em] uppercase transition hover:opacity-90"
-            >
-              Book a Consultation
-            </Link>
-          </div>
         </Container>
       </section>
 
-      {/* SERVICES GRID */}
-      <section className="pb-28">
+      {/* SERVICE IMAGE GRID — NOW PROMINENT */}
+      <section className="pb-32">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-3">
-            {services.map((s) => (
-              <div
-                key={s.title}
-                className={[
-                  "p-8 md:p-9 lg:p-10 border transition duration-300",
-                  s.featured
-                    ? "border-motusGold/80"
-                    : "border-white/10 hover:border-motusGold/60 hover:-translate-y-1",
-                ].join(" ")}
-              >
-                <h2 className="font-headingtext-motusHeading text-xl md:text-2xl font-light leading-snug">
-                  {s.title}
-                </h2>
-
-                <div className="mt-6 h-px w-full bg-white/10" />
-
-                <p className="mt-6 text-sm md:text-base text-motusHeading/70 leading-relaxed">
-                  {s.body}
-                </p>
-
-                <ul className="mt-8 space-y-3 text-sm text-motusHeading/70">
-                  {s.includes.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-[7px] h-[3px] w-[3px] rounded-full bg-motusGold/90" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-10">
-                  <Link
-                    href="/contact"
-                    className="inline-block border border-motusGold text-motusGold px-8 py-3 text-xs tracking-[0.18em] uppercase transition hover:bg-motusGold hover:text-black"
-                  >
-                    Inquire
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ServiceCards items={serviceCards} />
         </Container>
       </section>
 
       {/* PROCESS */}
-      <section className="py-28">
-        <Container>
+      <section className="relative py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,245,242,0.05)_0%,transparent_60%)]" />
+
+        <Container className="relative">
           <SectionLabel>Process</SectionLabel>
 
-          <h2 className="font-headingmt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
-            A clear, guided process that keeps decisions calm and cohesive.
+          <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+            A structured approach that keeps design intentional and execution smooth.
           </h2>
 
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
-            {steps.map((step, idx) => (
-              <div key={step.title} className="border border-white/10 p-8 md:p-9">
-                <p className="text-motusGold text-xs tracking-[0.24em] uppercase">
+            {processSteps.map((s, idx) => (
+              <div key={s.title} className="border border-white/10 p-8 md:p-9">
+                <p className="text-motusGold text-xs tracking-[0.26em] uppercase">
                   Step {String(idx + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-4 text-motusHeading text-xl font-light">
-                  {step.title}
+
+                <h3 className="mt-4 text-motusHeading text-xl md:text-2xl font-light">
+                  {s.title}
                 </h3>
-                <p className="mt-4 text-motusHeading/70 text-sm md:text-base leading-relaxed">
-                  {step.body}
+
+                <div className="mt-6 h-px w-full bg-white/10" />
+
+                <p className="mt-6 text-motusMuted leading-relaxed">
+                  {s.body}
                 </p>
               </div>
             ))}
           </div>
+        </Container>
+      </section>
 
-          <div className="mt-16">
-            <Link
-              href="/contact"
-              className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
-            >
-              Start Your Project
-            </Link>
+      {/* CTA */}
+      <section className="py-28">
+        <Container>
+          <div className="border border-white/10 p-10 md:p-14 lg:p-16">
+            <SectionLabel>Get In Touch</SectionLabel>
+
+            <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+              Ready to build something refined, functional, and enduring?
+            </h2>
+
+            <p className="mt-6 text-motusMuted max-w-2xl leading-relaxed">
+              Tell us about your project and we’ll outline next steps.
+            </p>
+
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:opacity-90"
+              >
+                Start a Project
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
+
     </main>
   );
 }
