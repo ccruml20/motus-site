@@ -111,7 +111,7 @@ export default function AboutPage() {
           <div className="border border-white/10 p-10 md:p-14 lg:p-16">
             <SectionLabel>Next Step</SectionLabel>
 
-            <h2 className="font-headingmt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+            <h2 className="font-heading mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
               Let’s create a space that feels calm, lived-in, and beautifully resolved.
             </h2>
 
