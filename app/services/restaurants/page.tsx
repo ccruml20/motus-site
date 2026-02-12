@@ -21,6 +21,16 @@ export default function RestaurantsServicePage() {
         </div>
 
         <Container className="relative">
+          <div className="mb-6">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-motusHeading/70 hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
+            >
+              <span aria-hidden>←</span>
+              Back to Services
+            </Link>
+          </div>
+                    
           <SectionLabel>Services</SectionLabel>
           <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light">
             Restaurants
