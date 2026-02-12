@@ -26,7 +26,7 @@ export default function AboutPage() {
         <Container>
           <SectionLabel>About</SectionLabel>
 
-          <h1 className="mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-5xl">
+          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-5xl">
             Motus is an interior design studio focused on timeless, refined living.
           </h1>
 
@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div>
               <SectionLabel>Our Approach</SectionLabel>
 
-              <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl font-light">
+              <h2 className="font-headingmt-8 text-motusHeading text-3xl md:text-4xl font-light">
                 Design that feels effortless—because it’s intentional.
               </h2>
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <div className="mt-10">
                 <Link
                   href="/contact"
-                  className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:opacity-90"
+                  className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
                 >
                   Work With Motus
                 </Link>
@@ -87,7 +87,7 @@ export default function AboutPage() {
         <Container>
           <SectionLabel>Values</SectionLabel>
 
-          <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+          <h2 className="font-headingmt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
             What we prioritize in every project.
           </h2>
 
@@ -111,7 +111,7 @@ export default function AboutPage() {
           <div className="border border-white/10 p-10 md:p-14 lg:p-16">
             <SectionLabel>Next Step</SectionLabel>
 
-            <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+            <h2 className="font-headingmt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
               Let’s create a space that feels calm, lived-in, and beautifully resolved.
             </h2>
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:bg-motusGold hover:text-black"
+                className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:bg-motusGold hover:text-black"
               >
                 Contact Motus
               </Link>

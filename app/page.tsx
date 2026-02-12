@@ -20,7 +20,7 @@ export default function Home() {
 
         <Container className="relative">
           <div className="pt-36 lg:pt-40 max-w-3xl lg:max-w-6xl">
-            <h1 className="text-motusHeading text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05]">
+            <h1 className="font-heading text-motusHeading text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05]">
               Elevate Your Living Space with Timeless Interior Design
             </h1>
 
@@ -31,7 +31,7 @@ export default function Home() {
             <div className="mt-9">
               <a
                 href="/contact"
-                className="inline-block bg-motusGold text-black px-10 py-4 text-xs md:text-sm tracking-[0.22em] uppercase transition hover:opacity-90"
+                className="inline-block bg-motusGold text-black px-10 py-4 text-xs md:text-sm tracking-[0.18em] uppercase transition hover:opacity-90"
               >
                 Get In Touch
               </a>
@@ -51,7 +51,7 @@ export default function Home() {
           <div className="relative">
             {/* divider + label */}
           
-            <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light">
+            <h2 className="font-heading mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light">
               Thoughtfully Designed Interiors Tailored to You
             </h2>
 
@@ -84,7 +84,7 @@ export default function Home() {
           <SectionLabel>Featured Projects</SectionLabel>
           <div className="max-w-3xl mb-16">
             
-            <h2 className="text-motusHeading text-4xl lg:text-5xl font-light mt-8">
+            <h2 className="font-headingtext-motusHeading text-4xl lg:text-5xl font-light mt-8">
               A Portfolio of Refined, Modern Interiors
             </h2>
 
@@ -148,7 +148,7 @@ export default function Home() {
           <div className="mt-16">
             <a
               href="/portfolio"
-              className="inline-block border border-motusGold text-motusGold px-8 py-3 text-xs tracking-[0.22em] uppercase transition hover:bg-motusGold hover:text-black"
+              className="inline-block border border-motusGold text-motusGold px-8 py-3 text-xs tracking-[0.18em] uppercase transition hover:bg-motusGold hover:text-black"
             >
               View Full Portfolio
             </a>
@@ -161,7 +161,7 @@ export default function Home() {
           <div className="md:p-14 lg:p-16">
             <SectionLabel>Ready to Begin?</SectionLabel>
 
-            <h2 className="mt-6 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+            <h2 className="font-heading mt-6 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
               Let’s design something beautiful—calm, functional, and timeless.
             </h2>
 
@@ -172,14 +172,14 @@ export default function Home() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
                 href="/contact"
-                className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:opacity-90"
+                className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
               >
                 Book a Consultation
               </a>
 
               <a
                 href="/portfolio"
-                className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:bg-motusGold hover:text-black"
+                className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:bg-motusGold hover:text-black"
               >
                 View Portfolio
               </a>

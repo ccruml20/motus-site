@@ -53,7 +53,7 @@ export default function Nav() {
 
               <Link
                 href="/contact"
-                className="ml-4 inline-flex items-center bg-motusGold text-black px-6 py-3 text-[11px] tracking-[0.22em] uppercase transition hover:opacity-90"
+                className="ml-4 inline-flex items-center bg-motusGold text-black px-6 py-3 text-[11px] tracking-[0.18em] uppercase transition hover:opacity-90"
               >
                 Get in Touch
               </Link>
@@ -121,7 +121,7 @@ export default function Nav() {
                 <Link
                   href="/contact"
                   onClick={close}
-                  className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:opacity-90"
+                  className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
                 >
                   Get in Touch
                 </Link>

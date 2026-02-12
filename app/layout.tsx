@@ -2,6 +2,7 @@ import "./globals.css";
 import "./grain.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { Playfair_Display, Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 
@@ -17,6 +18,18 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-playfair",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-inter",
+});
+
 
 
 export default function RootLayout({
@@ -26,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-motusBg text-white antialiased">
+      <body className={`${playfair.variable} ${inter.variable} bg-motusBg text-white antialiased`}>
 
         <Nav />
         {children}

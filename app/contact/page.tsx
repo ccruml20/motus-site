@@ -8,7 +8,7 @@ export default function ContactPage() {
         <Container>
           <SectionLabel>Contact</SectionLabel>
 
-          <h1 className="mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-4xl">
+          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-4xl">
             Let’s Begin Designing Your Space.
           </h1>
 
@@ -52,7 +52,7 @@ export default function ContactPage() {
             <div className="pt-6">
               <button
                 type="submit"
-                className="bg-motusGold text-black px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:opacity-90"
+                className="bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
               >
                 Submit Inquiry
               </button>

@@ -19,7 +19,7 @@ export default function PortfolioPage() {
         <Container>
           <SectionLabel>Portfolio</SectionLabel>
 
-          <h1 className="mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-4xl">
+          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-4xl">
             A selection of spaces designed with calm, clarity, and intention.
           </h1>
 

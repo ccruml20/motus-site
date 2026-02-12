@@ -73,7 +73,7 @@ export default function ServicesPage() {
         <Container>
           <SectionLabel>Services</SectionLabel>
 
-          <h1 className="mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-5xl">
+          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-5xl">
             Design services built around clarity, calm, and timeless materiality.
           </h1>
 
@@ -84,7 +84,7 @@ export default function ServicesPage() {
           <div className="mt-10">
             <Link
               href="/contact"
-              className="inline-block bg-motusGold text-black px-10 py-4 text-xs md:text-sm tracking-[0.22em] uppercase transition hover:opacity-90"
+              className="inline-block bg-motusGold text-black px-10 py-4 text-xs md:text-sm tracking-[0.18em] uppercase transition hover:opacity-90"
             >
               Book a Consultation
             </Link>
@@ -106,7 +106,7 @@ export default function ServicesPage() {
                     : "border-white/10 hover:border-motusGold/60 hover:-translate-y-1",
                 ].join(" ")}
               >
-                <h2 className="text-motusHeading text-xl md:text-2xl font-light leading-snug">
+                <h2 className="font-headingtext-motusHeading text-xl md:text-2xl font-light leading-snug">
                   {s.title}
                 </h2>
 
@@ -128,7 +128,7 @@ export default function ServicesPage() {
                 <div className="mt-10">
                   <Link
                     href="/contact"
-                    className="inline-block border border-motusGold text-motusGold px-8 py-3 text-xs tracking-[0.22em] uppercase transition hover:bg-motusGold hover:text-black"
+                    className="inline-block border border-motusGold text-motusGold px-8 py-3 text-xs tracking-[0.18em] uppercase transition hover:bg-motusGold hover:text-black"
                   >
                     Inquire
                   </Link>
@@ -144,7 +144,7 @@ export default function ServicesPage() {
         <Container>
           <SectionLabel>Process</SectionLabel>
 
-          <h2 className="mt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
+          <h2 className="font-headingmt-8 text-motusHeading text-3xl md:text-4xl lg:text-5xl font-light max-w-4xl">
             A clear, guided process that keeps decisions calm and cohesive.
           </h2>
 
@@ -167,7 +167,7 @@ export default function ServicesPage() {
           <div className="mt-16">
             <Link
               href="/contact"
-              className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.22em] uppercase transition hover:opacity-90"
+              className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
             >
               Start Your Project
             </Link>
