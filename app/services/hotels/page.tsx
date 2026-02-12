@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import SectionLabel from "@/components/SectionLabel";
+import ServiceHero from "@/components/ServiceHero";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,57 +8,12 @@ export default function HotelsServicePage() {
   return (
     <main className="bg-motusBg text-motusHeading">
       {/* HERO */}
-      <section className="relative pt-36 pb-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/services-hotels.jpg"
-            alt="Hotel design service"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <Container className="relative">
-          <div className="mb-6">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-motusMuted hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
-            >
-              <span aria-hidden>←</span>
-              Back to Services
-            </Link>
-          </div>
-                    
-          <SectionLabel>Services</SectionLabel>
-
-          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light max-w-5xl leading-[1.08]">
-            Hotels
-          </h1>
-
-          <p className="mt-6 text-motusMuted max-w-2xl leading-relaxed">
-            Hospitality interiors that feel memorable, refined, and operationally sound—designed to support
-            the guest experience and the realities of daily use.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:opacity-90"
-            >
-              Start a Project
-            </Link>
-            <Link
-              href="/services"
-              className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:bg-motusGold hover:text-black"
-            >
-              View All Services
-            </Link>
-          </div>
-        </Container>
-      </section>
+      <ServiceHero
+        title="Hotels"
+        description="Layered hospitality environments that balance brand standards with local character."
+        imageSrc="/services-hotels.jpg"
+        imageAlt="Hotel interior design service"
+      />
 
       {/* CONTENT */}
       <section className="py-24">

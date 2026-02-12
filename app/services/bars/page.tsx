@@ -1,54 +1,21 @@
 import Container from "@/components/Container";
 import SectionLabel from "@/components/SectionLabel";
+import ServiceHero from "@/components/ServiceHero";
 import Image from "next/image";
 import Link from "next/link";
+
+
 
 export default function BarsServicePage() {
   return (
     <main className="bg-motusBg text-motusHeading">
-      <section className="relative pt-36 pb-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/services-bars.jpg"
-            alt="Bar design service"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+      <ServiceHero
+        title="Bars"
+        description="Moody, high-impact environments with refined material contrast—designed for energy, flow, and unforgettable moments."
+        imageSrc="/services-bars.jpg"
+        imageAlt="Bar design service"
+      />      
 
-        <Container className="relative">
-          <div className="mb-6">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-motusMuted hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
-            >
-              <span aria-hidden>←</span>
-              Back to Services
-            </Link>
-          </div>
-
-          <SectionLabel>Services</SectionLabel>
-          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light">
-            Bars
-          </h1>
-          <p className="mt-6 text-motusMuted max-w-2xl leading-relaxed">
-            Moody, high-impact environments with refined material contrast—designed for energy, flow,
-            and unforgettable moments.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:opacity-90">
-              Start a Project
-            </Link>
-            <Link href="/services" className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:bg-motusGold hover:text-black">
-              View All Services
-            </Link>
-          </div>
-        </Container>
-      </section>
 
       <section className="py-24">
         <Container>
@@ -67,7 +34,7 @@ export default function BarsServicePage() {
 
               <div className="mt-12 border border-black/10 p-8 md:p-9">
                 <p className="text-motusGold text-xs tracking-[0.26em] uppercase">Deliverables</p>
-                <div className="mt-6 h-px w-full bg-white/10" />
+                <div className="mt-6 h-px w-full bg-black/10" />
                 <ul className="mt-6 space-y-3 text-motusMuted">
                   {[
                     "Concept direction (tone, palette, signature details)",
@@ -87,7 +54,7 @@ export default function BarsServicePage() {
 
             <aside className="border border-black/10 p-8 md:p-9 h-fit">
               <p className="text-motusGold text-xs tracking-[0.26em] uppercase">Ideal For</p>
-              <div className="mt-6 h-px w-full bg-white/10" />
+              <div className="mt-6 h-px w-full bg-black/10" />
               <ul className="mt-6 space-y-3 text-motusMuted">
                 {[
                   "Cocktail bars + hotel bars",

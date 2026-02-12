@@ -1,54 +1,18 @@
 import Container from "@/components/Container";
 import SectionLabel from "@/components/SectionLabel";
+import ServiceHero from "@/components/ServiceHero";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function RetailServicePage() {
   return (
     <main className="bg-motusBg text-motusHeading">
-      <section className="relative pt-36 pb-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/services-retail.jpg"
-            alt="Retail design service"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <Container className="relative">
-          <div className="mb-6">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-motusMuted hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
-            >
-              <span aria-hidden>←</span>
-              Back to Services
-            </Link>
-          </div>
-                    
-          <SectionLabel>Services</SectionLabel>
-          <h1 className="font-heading mt-8 text-motusHeading text-4xl md:text-5xl lg:text-6xl font-light">
-            Retail
-          </h1>
-          <p className="mt-6 text-motusMuted max-w-2xl leading-relaxed">
-            Retail spaces designed for brand presence, merchandising clarity, and a customer journey that feels
-            effortless—and memorable.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:opacity-90">
-              Start a Project
-            </Link>
-            <Link href="/services" className="inline-block border border-motusGold text-motusGold px-10 py-4 text-xs tracking-[0.20em] uppercase transition hover:bg-motusGold hover:text-black">
-              View All Services
-            </Link>
-          </div>
-        </Container>
-      </section>
+      <ServiceHero
+        title="Retail"
+        description="Curated retail interiors that highlight product, strengthen brand identity, and guide customers intuitively."
+        imageSrc="/services-retail.jpg"
+        imageAlt="Retail interior design service"
+      />
 
       <section className="py-24">
         <Container>
