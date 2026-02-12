@@ -16,28 +16,25 @@ export default function Nav() {
   }, [open]);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Dark Nav Background */}
+      <div className="absolute inset-0 bg-motusDark/90 backdrop-blur-md" />
 
-      {/* Gradient Behind Nav */}
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b bg-motusBg/45 to-transparent z-0 pointer-events-none" />
-
-      <div className="relative z-10">
-
+      <div className="relative">
         {/* FULL WIDTH NAV CONTENT */}
         <div className="w-full px-8 lg:px-16">
-          <div className="flex items-center justify-between py-7">
-
+          <div className="flex items-center justify-between py-6">
             {/* Logo */}
             <Link
               href="/"
               onClick={close}
-              className="text-motusHeading text-2xl tracking-[0.18em] uppercase"
+              className="text-[#F3EFE8] text-2xl tracking-[0.18em] uppercase"
             >
               Motus
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase text-motusHeading/85">
+            <nav className="hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase text-white/80">
               <Link href="/portfolio" className="hover:text-motusGold transition">
                 Portfolio
               </Link>
@@ -61,7 +58,7 @@ export default function Nav() {
 
             {/* Mobile Button */}
             <button
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 text-motusHeading/90"
+              className="md:hidden inline-flex items-center justify-center w-10 h-10 text-white/80"
               aria-label="Toggle menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -90,7 +87,7 @@ export default function Nav() {
           </div>
 
           {/* Divider */}
-          <div className="h-px w-full bg-white/10 opacity-80" />
+          <div className="h-px w-full bg-white/15" />
         </div>
       </div>
 
@@ -98,22 +95,38 @@ export default function Nav() {
       {open && (
         <>
           <div
-            className="fixed inset-0 bg-motusBg/60 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
             onClick={close}
           />
 
-          <div className="fixed inset-x-0 top-0 pt-28 pb-10 bg-motusBg/95 border-b border-white/10 z-50 px-8">
-            <div className="flex flex-col gap-6 text-motusHeading/90 text-lg uppercase tracking-[0.18em]">
-              <Link href="/portfolio" onClick={close} className="hover:text-motusGold transition">
+          <div className="fixed inset-x-0 top-0 pt-28 pb-10 bg-motusDark/98 border-b border-white/15 z-50 px-8">
+            <div className="flex flex-col gap-6 text-white/80 text-lg uppercase tracking-[0.18em]">
+              <Link
+                href="/portfolio"
+                onClick={close}
+                className="hover:text-motusGold transition"
+              >
                 Portfolio
               </Link>
-              <Link href="/services" onClick={close} className="hover:text-motusGold transition">
+              <Link
+                href="/services"
+                onClick={close}
+                className="hover:text-motusGold transition"
+              >
                 Services
               </Link>
-              <Link href="/about" onClick={close} className="hover:text-motusGold transition">
+              <Link
+                href="/about"
+                onClick={close}
+                className="hover:text-motusGold transition"
+              >
                 About
               </Link>
-              <Link href="/contact" onClick={close} className="hover:text-motusGold transition">
+              <Link
+                href="/contact"
+                onClick={close}
+                className="hover:text-motusGold transition"
+              >
                 Contact
               </Link>
 
@@ -133,3 +146,4 @@ export default function Nav() {
     </header>
   );
 }
+

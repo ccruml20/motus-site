@@ -13,7 +13,7 @@ const projects = [
 
 export default function PortfolioPage() {
   return (
-    <main className="bg-motusBg text-white">
+    <main className="bg-motusBg text-motusHeading">
       {/* Top spacing because nav is absolute */}
       <section className="pt-36 pb-20">
         <Container>
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
             A selection of spaces designed with calm, clarity, and intention.
           </h1>
 
-          <p className="mt-6 text-motusHeading/65 max-w-2xl">
+          <p className="mt-6 text-motusMuted max-w-2xl">
             Explore a curated set of residential interiors—from full-service transformations to focused refreshes.
           </p>
         </Container>
@@ -43,12 +43,12 @@ export default function PortfolioPage() {
                     className="object-cover transition duration-700 group-hover:scale-105"
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition duration-500" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/18 transition duration-500" />
                   <div className="absolute left-5 bottom-5 opacity-0 group-hover:opacity-100 transition duration-500">
-                    <div className="text-motusHeading/95 text-xs tracking-[0.28em] uppercase">
+                    <div className="text-motusMuted text-xs tracking-[0.28em] uppercase">
                       {p.title}
                     </div>
-                    <div className="mt-2 text-motusHeading/70 text-xs tracking-wider uppercase">
+                    <div className="mt-2 text-motusMuted text-xs tracking-wider uppercase">
                       {p.tag}
                     </div>
                   </div>

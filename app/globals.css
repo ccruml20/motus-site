@@ -10,10 +10,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-playfair);
-  --color-motusHeading: #F5F5F2;
-  --color-motusGold: #C6A36C;
-  --color-motusMuted: rgba(245,245,242,0.70);
-  --color-motusBg: #151413;
+  --color-motusBg: #F3EFE8;        /* main background (warm ivory) */
+  --color-motusSection: #E6E1D8;   /* subtle alternate section */
+  --color-motusHeading: #2B2927;   /* primary text (charcoal) */
+  --color-motusMuted: rgba(43, 41, 39, 0.75);
+  --color-motusGold: #B7A067;      /* aged brass */
+  --color-motusDark: #2C2A28;      /* dark anchor sections */
+  --color-motusGoldText: #8F7A47;
+  
 
 }
 
@@ -25,8 +29,9 @@
 }
 
 body {
-  background: transparent;
-  color: var(--foreground);
+  background: var(--color-motusBg);
+  color: var(--color-motusHeading);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 

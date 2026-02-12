@@ -1,16 +1,22 @@
 export default function SectionLabel({
   children,
   className = "",
+  tone = "light",
 }: {
   children: React.ReactNode;
   className?: string;
+  tone?: "light" | "dark";
 }) {
+  const line = tone === "dark" ? "bg-white/18" : "bg-black/10";
+  const text =
+    tone === "dark" ? "text-motusGold" : "text-[color:var(--color-motusGoldText)]";
+
   return (
     <div className={`flex items-center gap-6 ${className}`.trim()}>
-      <div className="text-motusGold text-xs tracking-[0.35em] uppercase whitespace-nowrap">
+      <div className={`${text} text-[11px] tracking-[0.35em] uppercase whitespace-nowrap`}>
         {children}
       </div>
-      <div className="h-px flex-1 bg-white/10" />
+      <div className={`h-px flex-1 ${line}`} />
     </div>
   );
 }

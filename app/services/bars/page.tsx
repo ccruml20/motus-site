@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function BarsServicePage() {
   return (
-    <main className="bg-motusBg text-white">
+    <main className="bg-motusBg text-motusHeading">
       <section className="relative pt-36 pb-20">
         <div className="absolute inset-0">
           <Image
@@ -16,15 +16,14 @@ export default function BarsServicePage() {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-motusBg to-transparent" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         <Container className="relative">
           <div className="mb-6">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-motusHeading/70 hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
+              className="inline-flex items-center gap-2 text-motusMuted hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
             >
               <span aria-hidden>←</span>
               Back to Services
@@ -66,7 +65,7 @@ export default function BarsServicePage() {
                 and high-contrast moments that photograph beautifully without feeling trendy.
               </p>
 
-              <div className="mt-12 border border-white/10 p-8 md:p-9">
+              <div className="mt-12 border border-black/10 p-8 md:p-9">
                 <p className="text-motusGold text-xs tracking-[0.26em] uppercase">Deliverables</p>
                 <div className="mt-6 h-px w-full bg-white/10" />
                 <ul className="mt-6 space-y-3 text-motusMuted">
@@ -86,7 +85,7 @@ export default function BarsServicePage() {
               </div>
             </div>
 
-            <aside className="border border-white/10 p-8 md:p-9 h-fit">
+            <aside className="border border-black/10 p-8 md:p-9 h-fit">
               <p className="text-motusGold text-xs tracking-[0.26em] uppercase">Ideal For</p>
               <div className="mt-6 h-px w-full bg-white/10" />
               <ul className="mt-6 space-y-3 text-motusMuted">

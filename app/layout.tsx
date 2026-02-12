@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${inter.variable} bg-motusBg text-white antialiased`}>
+      <body className={`${playfair.variable} ${inter.variable} bg-motusBg text-motusHeading antialiased`}>
 
         <Nav />
         {children}

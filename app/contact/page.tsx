@@ -10,7 +10,7 @@ export default function ContactPage({
   const sent = searchParams?.sent;
 
   return (
-    <main className="bg-motusBg text-white">
+    <main className="bg-motusBg text-motusHeading">
       <section className="pt-36 pb-28">
         <Container>
           <SectionLabel>Contact</SectionLabel>
@@ -24,7 +24,7 @@ export default function ContactPage({
           </p>
 
           {sent === "1" && (
-            <p className="mt-10 text-motusHeading/80">
+            <p className="mt-10 text-motusMuted">
               ✅ Message sent. We’ll be in touch soon.
             </p>
           )}
@@ -41,7 +41,7 @@ export default function ContactPage({
                 name="name"
                 type="text"
                 required
-                className="mt-3 w-full bg-transparent border-b border-white/20 focus:border-motusGold outline-none py-3 transition"
+                className="mt-3 w-full bg-transparent border-b border-black/20 focus:border-motusGold outline-none py-3 transition"
               />
             </div>
 
@@ -51,7 +51,7 @@ export default function ContactPage({
                 name="email"
                 type="email"
                 required
-                className="mt-3 w-full bg-transparent border-b border-white/20 focus:border-motusGold outline-none py-3 transition"
+                className="mt-3 w-full bg-transparent border-b border-black/20 focus:border-motusGold outline-none py-3 transition"
               />
             </div>
 
@@ -61,7 +61,7 @@ export default function ContactPage({
                 name="message"
                 rows={4}
                 required
-                className="mt-3 w-full bg-transparent border-b border-white/20 focus:border-motusGold outline-none py-3 transition resize-none"
+                className="mt-3 w-full bg-transparent border-b border-black/20 focus:border-motusGold outline-none py-3 transition resize-none"
               />
             </div>
 

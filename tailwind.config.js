@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        motusGold: "#C6A36C",
+        motusGold: "#B7A067",
       },
     },
   },

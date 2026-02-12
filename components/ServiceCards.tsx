@@ -9,48 +9,42 @@ export type ServiceCardItem = {
 };
 
 export default function ServiceCards({
-    items,
-    variant = "default",
-    }: {
-    items: ServiceCardItem[];
-    variant?: "default" | "home";
-    }) {
+  items,
+  variant = "default",
+}: {
+  items: ServiceCardItem[];
+  variant?: "default" | "home";
+}) {
+  const imgHeight =
+    variant === "home"
+      ? "h-[380px] md:h-[460px] xl:h-[520px]"
+      : "h-[320px] md:h-[360px] xl:h-[380px]";
+
   return (
     <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
       {items.map((item) => (
-        <Link
-          key={item.title}
-          href={item.href}
-          className="group block"
-          aria-label={`View service: ${item.title}`}
-        >
-          <div className="border border-white/10 overflow-hidden bg-motusBg">
-            <div
-            className={[
-                "relative overflow-hidden",
-                variant === "home"
-                ? "h-[380px] md:h-[460px] xl:h-[500px]"
-                : "h-[320px] md:h-[360px] xl:h-[380px]",
-            ].join(" ")}
-            >
-
+        <Link key={item.title} href={item.href} className="group block">
+          <div className="overflow-hidden">
+            {/* Image */}
+            <div className={`relative overflow-hidden group block transition hover:-translate-y-1 ${imgHeight}`}>
               <Image
                 src={item.imageSrc}
                 alt={item.imageAlt}
                 fill
                 className="object-cover transition duration-700 group-hover:scale-105"
-                sizes="(min-width: 1280px) 20vw, 100vw"
+                sizes="(min-width: 1280px) 20vw, (min-width: 768px) 33vw, 100vw"
               />
 
-              <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition duration-500" />
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
+              {/* lighter overlay for light-dominant site */}
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/18 transition duration-500" />
             </div>
 
-            <div className="px-1 pt-5 pb-3">
-              <div className="text-motusHeading/85 text-[11px] tracking-[0.30em] uppercase">
+            {/* Label row */}
+            <div className="pt-6 pb-4">
+              <div className="text-motusHeading/90 text-[11px] tracking-[0.30em] uppercase">
                 {item.title}
               </div>
-              <div className="mt-4 h-px w-full bg-white/15" />
+              <div className="mt-4 h-px w-full bg-black/8" />
             </div>
           </div>
         </Link>
@@ -58,4 +52,5 @@ export default function ServiceCards({
     </div>
   );
 }
+
 

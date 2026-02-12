@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-motusBg border-t border-white/10">
+    <footer className="bg-motusBg border-t border-black/10">
       <Container className="py-24">
         <div className="grid md:grid-cols-3 gap-12">
 
@@ -12,7 +12,7 @@ export default function Footer() {
             <h3 className="text-motusHeading text-xl tracking-[0.18em] uppercase">
               Motus
             </h3>
-            <p className="mt-6 text-motusHeading/65 max-w-xs">
+            <p className="mt-6 text-motusMuted max-w-xs">
               Refined interior design rooted in balance, proportion, and timeless materiality.
             </p>
           </div>
@@ -22,7 +22,7 @@ export default function Footer() {
             <p className="text-motusGold text-xs tracking-[0.24em] uppercase">
               Navigation
             </p>
-            <div className="mt-6 flex flex-col gap-3 text-motusHeading/80 text-sm">
+            <div className="mt-6 flex flex-col gap-3 text-motusMuted text-sm">
               <Link href="/portfolio" className="hover:text-motusGold transition">
                 Portfolio
               </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
             <p className="text-motusGold text-xs tracking-[0.24em] uppercase">
               Contact
             </p>
-            <div className="mt-6 text-motusHeading/80 text-sm space-y-2">
+            <div className="mt-6 text-motusMuted text-sm space-y-2">
               <p>info@motusdesignstudio.com</p>
               <p>Blue Ridge, Georgia</p>
             </div>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Line */}
-        <div className="mt-16 pt-8 border-t border-white/10 text-motusHeading/50 text-xs tracking-wide">
+        <div className="mt-16 pt-8 border-t border-black/10 text-motusMuted text-xs tracking-wide">
           © {new Date().getFullYear()} Motus Design Studio. All rights reserved.
         </div>
       </Container>
