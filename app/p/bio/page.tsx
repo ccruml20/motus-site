@@ -9,34 +9,41 @@ export const metadata = {
 export default function PrivateBioPage() {
   return (
     <main className="bg-motusBg text-motusHeading">
-      <section className="pb-24">
+      <section className="pt-36 pb-24">
+        <Container>
+          <div className="mb-8">
+            <Link
+              href="/p"
+              className="text-motusMuted hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
+            >
+              ← Back
+            </Link>
+          </div>
+        </Container>
+
         <article className="border-b border-black/10 bg-motusBg">
           <div className="mx-auto w-full max-w-[980px] px-0">
             <div className="border-b border-black/10 px-6 py-5 md:px-8">
               <p className="text-[11px] uppercase tracking-[0.24em] text-black/55">Leadership</p>
             </div>
 
-            <div className="grid items-end gap-0 px-6 py-8 min-[1069px]:grid-cols-[1fr_auto] min-[1069px]:px-8 min-[1069px]:py-10 min-[736px]:max-[1068px]:grid-cols-[1fr_auto] min-[736px]:max-[1068px]:px-8 min-[736px]:max-[1068px]:py-9 max-[735px]:grid-cols-1 max-[735px]:px-0 max-[735px]:pt-4 max-[735px]:pb-0">
+            <div className="grid items-end gap-0 px-6 pt-8 pb-0 min-[1069px]:grid-cols-[1fr_auto] min-[1069px]:px-8 min-[1069px]:pt-10 min-[1069px]:pb-0 min-[736px]:max-[1068px]:grid-cols-[1fr_auto] min-[736px]:max-[1068px]:px-8 min-[736px]:max-[1068px]:pt-9 min-[736px]:max-[1068px]:pb-0 max-[735px]:grid-cols-1 max-[735px]:px-0 max-[735px]:pt-4 max-[735px]:pb-0">
               <div className="order-2 min-[736px]:order-1 max-[735px]:px-6 max-[735px]:pt-8 max-[735px]:pb-8">
                 <h1 className="font-heading font-light leading-[0.95] text-[64px] min-[736px]:max-[1068px]:text-[56px] max-[735px]:text-[48px]">
                   Brittney Greco
                 </h1>
-                <p className="mt-4 font-light leading-tight text-black/75 text-[48px] min-[736px]:max-[1068px]:text-[40px] max-[735px]:text-[36px]">
+                <p className="mt-4 pb-4 font-light leading-tight text-black/75 text-[48px] min-[736px]:max-[1068px]:text-[40px] max-[735px]:text-[36px]">
                   Founder + Design Director
-                </p>
-                <p className="mt-3 max-w-[26ch] text-2xl leading-snug text-black/70 min-[736px]:max-[1068px]:text-[22px] max-[735px]:text-[20px] max-[735px]:leading-[1.2]">
-                  Hospitality Interiors and Brand Experience
                 </p>
               </div>
 
-              <div className="order-1 w-full min-[736px]:order-2 min-[1069px]:w-115 min-[736px]:max-[1068px]:w-102.5 max-[735px]:w-full max-[735px]:pl-0 max-[735px]:pr-0">
-                <div className="relative h-105
-                 w-full overflow-hidden">
+              <div className="order-1 w-full min-[736px]:order-2 min-[1069px]:w-[460px] min-[736px]:max-[1068px]:w-[410px] max-[735px]:w-full max-[735px]:pl-0 max-[735px]:pr-0">
+                <div className="relative h-[336px] w-full overflow-hidden">
                   <Image
                     src="/brittney.png"
                     alt="Brittney Greco"
                     fill
-                    className="object-contain object-bottom max-[735px]:object-bottom-left"
+                    className="object-contain object-bottom max-[735px]:object-left-bottom"
                     priority
                   />
                 </div>
@@ -45,18 +52,10 @@ export default function PrivateBioPage() {
           </div>
         </article>
 
-        <Container>
-          <div className="mx-auto mt-16 max-w-4xl">
-            <Link
-              href="/p"
-              className="text-motusMuted hover:text-motusGold transition text-xs tracking-[0.22em] uppercase"
-            >
-              ← Back
-            </Link>
-          </div>
-
-          <article className="mx-auto mt-16 max-w-4xl">
-            <p className="text-[11px] tracking-[0.28em] uppercase text-(--color-motusGoldText)">
+        <section className="border-t border-black/10 bg-[#f7f6f2] py-16 md:py-20">
+          <Container>
+            <article className="mx-auto max-w-4xl">
+            <p className="text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-motusGoldText)]">
               Biography
             </p>
 
@@ -101,8 +100,9 @@ export default function PrivateBioPage() {
                 ]}
               />
             </div>
-          </article>
-        </Container>
+            </article>
+          </Container>
+        </section>
       </section>
     </main>
   );
