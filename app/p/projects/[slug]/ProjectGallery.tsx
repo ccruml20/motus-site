@@ -102,12 +102,6 @@ export default function ProjectGallery({ title, cover, coverSpace, images }: Pro
                 unoptimized
               />
             </div>
-            <div className="absolute bottom-3 left-3 bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
-              {spaceLabels[image.space]}
-            </div>
-            <span className="absolute bottom-3 right-3 bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
-              Click to Enlarge
-            </span>
           </button>
         ))}
       </div>
