@@ -1,0 +1,60 @@
+﻿diff --git a/app/page.tsx b/app/page.tsx
+index 1dd1aeddb0ba64e9c82f3e1ab46d96bbf46c9d2d..6f94e9c50533c613873eb3dae30d1e1a9f715c6b 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -6,52 +6,52 @@ import { serviceCards } from "@/components/serviceData";
+ 
+ 
+ 
+ 
+ export default function Home() {
+   return (
+       <main className="bg-motusBg text-motusHeading">
+       {/* HERO */}
+       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
+         {/* Background Image */}
+         <div
+           className="absolute inset-0 bg-center bg-cover"
+           style={{ backgroundImage: "url('/hero.jpg')" }}
+         />
+ 
+         {/* Single refined overlay */}
+         <div className="absolute inset-0 bg-black/28" />
+ 
+         <Container className="relative pt-36 pb-24">
+           <div className="max-w-6xl">
+             <h1 className="font-heading text-[#F3EFE8] text-5xl md:text-6xl lg:text-7xl font-light tracking-[-0.02em] leading-[1.05] max-w-5xl">
+               Boutique Hospitality Interiors with Calm, Timeless Presence
+             </h1>
+ 
+             <p className="mt-6 text-[#F3EFE8]/75 max-w-2xl leading-[1.75]">
+-              Motus designs refined commercial interiors for hotels, restaurants, bars,
+-              retail, and corporate environments.
++              Motus creates refined hospitality interiors for hotels, restaurants,
++              bars, retail spaces, and corporate environments.
+             </p>
+ 
+             <div className="mt-10 flex flex-col sm:flex-row gap-4">
+               <a
+                 href="/contact"
+                 className="inline-block bg-motusGold text-black px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:opacity-90"
+               >
+                 Start a Project
+               </a>
+ 
+               <a
+                 href="/portfolio"
+                 className="inline-block border border-[#F3EFE8]/30 text-[#F3EFE8] px-10 py-4 text-xs tracking-[0.18em] uppercase transition hover:bg-[#F3EFE8] hover:text-black"
+               >
+                 View Portfolio
+               </a>
+             </div>
+           </div>
+         </Container>
+       </section>
+ 
+ 
+ 
+       {/* SERVICES */}
+       <section className="py-24 md:py-28 bg-motusSection">
+
