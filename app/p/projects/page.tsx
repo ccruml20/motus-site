@@ -82,27 +82,6 @@ export default async function PrivateProjectsPage({
             </p>
           </div>
 
-          <form className="mx-auto mb-6 max-w-2xl" action="/p/projects" method="get">
-            <div className="flex flex-col gap-3 md:flex-row">
-              <input
-                type="search"
-                name="q"
-                defaultValue={params.q ?? ""}
-                placeholder="Search by project, location, or project area"
-                className="w-full border border-black/15 bg-white px-4 py-3 text-sm text-motusHeading outline-none transition focus:border-motusGold"
-              />
-              {activeSpace && activeSpace !== "all" ? (
-                <input type="hidden" name="space" value={activeSpace} />
-              ) : null}
-              <button
-                type="submit"
-                className="border border-motusGold px-6 py-3 text-xs uppercase tracking-[0.18em] text-motusGold transition hover:bg-motusGold hover:text-black"
-              >
-                Search
-              </button>
-            </div>
-          </form>
-
           <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
             <FilterChip href={makeFilterHref({ q: params.q })} isActive={!activeSpace || activeSpace === "all"}>
               All Spaces
