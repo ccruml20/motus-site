@@ -13,7 +13,9 @@ export function middleware(req: NextRequest) {
     const authed =
       req.cookies.get("motus_portfolio_auth")?.value === "1";
 
-    if (!authed && !pathname.startsWith("/p/login")) {
+    const isPublicPrivateEntry = pathname === "/p";
+
+    if (!authed && !pathname.startsWith("/p/login") && !isPublicPrivateEntry) {
       const url = req.nextUrl.clone();
       url.pathname = "/p/login";
       url.searchParams.set("next", pathname);
@@ -24,7 +26,6 @@ export function middleware(req: NextRequest) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     return res;
 }
-
   // For all other routes, proceed normally
   const res = NextResponse.next();
 
@@ -40,4 +41,3 @@ export function middleware(req: NextRequest) {
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
-

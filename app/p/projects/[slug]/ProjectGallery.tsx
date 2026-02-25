@@ -2,16 +2,38 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import { type ProjectImage, type ProjectSpace, spaceLabels } from "../data";
 
 type ProjectGalleryProps = {
   title: string;
   cover: string;
-  images: string[];
+  images: ProjectImage[];
 };
 
+type SpaceFilter = "all" | ProjectSpace;
+
 export default function ProjectGallery({ title, cover, images }: ProjectGalleryProps) {
-  const allImages = useMemo(() => [cover, ...images], [cover, images]);
+  const allImages = useMemo<ProjectImage[]>(
+    () => [{ src: cover, space: "public-spaces" }, ...images],
+    [cover, images],
+  );
+
+  const [activeFilter, setActiveFilter] = useState<SpaceFilter>("all");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const availableSpaces = useMemo<ProjectSpace[]>(() => {
+    const unique = new Set<ProjectSpace>(allImages.map((image) => image.space));
+    return Array.from(unique);
+  }, [allImages]);
+
+  const filteredImages = useMemo(() => {
+    if (activeFilter === "all") {
+      return allImages;
+    }
+
+    return allImages.filter((image) => image.space === activeFilter);
+  }, [activeFilter, allImages]);
+
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -19,24 +41,35 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActiveIndex(null);
       if (event.key === "ArrowRight") {
-        setActiveIndex((prev) => (prev === null ? null : (prev + 1) % allImages.length));
+        setActiveIndex((prev) => (prev === null ? null : (prev + 1) % filteredImages.length));
       }
       if (event.key === "ArrowLeft") {
-        setActiveIndex((prev) => (prev === null ? null : (prev - 1 + allImages.length) % allImages.length));
+        setActiveIndex((prev) => (prev === null ? null : (prev - 1 + filteredImages.length) % filteredImages.length));
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [activeIndex, allImages.length]);
+  }, [activeIndex, filteredImages.length]);
 
   return (
     <>
+      <div className="mb-8 flex flex-wrap gap-3">
+        <FilterChip isActive={activeFilter === "all"} onClick={() => { setActiveFilter("all"); setActiveIndex(null); }}>
+          All Areas
+        </FilterChip>
+        {availableSpaces.map((space) => (
+          <FilterChip key={space} isActive={activeFilter === space} onClick={() => { setActiveFilter(space); setActiveIndex(null); }}>
+            {spaceLabels[space]}
+          </FilterChip>
+        ))}
+      </div>
+
       <div className="grid gap-6 md:grid-cols-2">
-        {allImages.map((src, index) => (
+        {filteredImages.map((image, index) => (
           <button
             type="button"
-            key={`${src}-${index}`}
+            key={`${image.src}-${index}`}
             onClick={() => setActiveIndex(index)}
             className={`relative overflow-hidden border border-black/10 bg-black/5 text-left ${
               index === 0 ? "md:col-span-2" : ""
@@ -44,7 +77,7 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
           >
             <div className={`relative ${index === 0 ? "aspect-[16/8] min-h-[240px]" : "aspect-[4/3]"}`}>
               <Image
-                src={src}
+                src={image.src}
                 alt={`${title} gallery image ${index + 1}`}
                 fill
                 className="object-cover"
@@ -53,6 +86,9 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
                 unoptimized
               />
             </div>
+            <div className="absolute bottom-3 left-3 bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
+              {spaceLabels[image.space]}
+            </div>
             <span className="absolute bottom-3 right-3 bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
               Click to Enlarge
             </span>
@@ -60,7 +96,11 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
         ))}
       </div>
 
-      {activeIndex !== null && (
+      {filteredImages.length === 0 ? (
+        <p className="mt-8 text-sm text-motusMuted">No images in this area yet.</p>
+      ) : null}
+
+      {activeIndex !== null && filteredImages[activeIndex] && (
         <div className="fixed inset-0 z-50 bg-black/90 p-4 md:p-10" role="dialog" aria-modal="true">
           <button
             type="button"
@@ -73,7 +113,7 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
           <div className="flex h-full flex-col justify-center">
             <div className="relative mx-auto h-[60vh] w-full max-w-6xl">
               <Image
-                src={allImages[activeIndex]}
+                src={filteredImages[activeIndex].src}
                 alt={`${title} enlarged image ${activeIndex + 1}`}
                 fill
                 className="object-contain"
@@ -86,7 +126,9 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
               <button
                 type="button"
                 onClick={() =>
-                  setActiveIndex((prev) => (prev === null ? null : (prev - 1 + allImages.length) % allImages.length))
+                  setActiveIndex((prev) =>
+                    prev === null ? null : (prev - 1 + filteredImages.length) % filteredImages.length,
+                  )
                 }
                 className="border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white hover:bg-white hover:text-black"
               >
@@ -94,12 +136,12 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
               </button>
 
               <p className="text-xs uppercase tracking-[0.2em] text-white/80">
-                {activeIndex + 1} / {allImages.length}
+                {activeIndex + 1} / {filteredImages.length}
               </p>
 
               <button
                 type="button"
-                onClick={() => setActiveIndex((prev) => (prev === null ? null : (prev + 1) % allImages.length))}
+                onClick={() => setActiveIndex((prev) => (prev === null ? null : (prev + 1) % filteredImages.length))}
                 className="border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white hover:bg-white hover:text-black"
               >
                 Next
@@ -109,5 +151,29 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
         </div>
       )}
     </>
+  );
+}
+
+function FilterChip({
+  isActive,
+  onClick,
+  children,
+}: {
+  isActive: boolean;
+  onClick: () => void;
+  children: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`border px-4 py-2 text-[10px] uppercase tracking-[0.22em] transition ${
+        isActive
+          ? "border-motusGold bg-motusGold text-black"
+          : "border-black/20 text-motusMuted hover:border-motusGold hover:text-motusGold"
+      }`}
+    >
+      {children}
+    </button>
   );
 }

@@ -1,12 +1,26 @@
+export type ProjectSpace = "guest-rooms" | "public-spaces" | "food-beverage";
+
+export type ProjectImage = {
+  src: string;
+  space: ProjectSpace;
+};
+
 export type ProjectDetail = {
   slug: string;
   title: string;
   location: string;
-  cover: string;        // used on grid card
+  cover: string;
   scope: string;
   designDrivers: string;
   role: string;
-  images: string[];     // 16:9 gallery images
+  spaces: ProjectSpace[];
+  images: ProjectImage[];
+};
+
+export const spaceLabels: Record<ProjectSpace, string> = {
+  "guest-rooms": "Guest Rooms",
+  "public-spaces": "Public Spaces",
+  "food-beverage": "Food & Beverage",
 };
 
 export const projects: ProjectDetail[] = [
@@ -15,25 +29,55 @@ export const projects: ProjectDetail[] = [
     title: "Hotel Brookmere",
     location: "Saratoga Springs, NY",
     cover: "/hospitality-project-1.webp",
-
     scope:
-      "Concept development and full interior design vision for a boutique hospitality property, including lobby experience, guestroom direction, lounge/bar concept, and exterior arrival sequence. The design focused on creating a warm, layered mountain retreat aesthetic using natural materials, textural lighting, and curated gathering spaces intended to encourage longer guest dwell time and repeat visitation.",
-
+      "Concept development and full interior design vision for a boutique hospitality property, including lobby experience, guestroom direction, lounge/bar concept, and exterior arrival sequence.",
     designDrivers:
-      "Warm, layered retreat character. Natural materials with refined contrast. Lighting as a primary atmosphere tool. Strong ‘arrival moment’ and lobby energy. Guestroom calm with elevated detail.",
-
+      "Warm, layered retreat character. Natural materials with refined contrast. Lighting as a primary atmosphere tool. Strong arrival moment and lobby energy.",
     role:
-      "Lead Designer & Creative Direction. Responsible for overall design narrative, mood development, space planning concepts, finish palette selection, furniture direction, lighting concepts, and guest experience programming.",
-
+      "Lead Designer & Creative Direction. Responsible for overall design narrative, mood development, space planning concepts, finish palette selection, furniture direction, and lighting concepts.",
+    spaces: ["guest-rooms", "public-spaces", "food-beverage"],
     images: [
-      "/brookmere-01.webp",
-      "/brookmere-02.webp",
-      "/brookmere-03.webp",
-      "/brookmere-04.webp",
-      "/brookmere-05.webp",
-      "/brookmere-06.webp",
+      { src: "/brookmere-01.webp", space: "public-spaces" },
+      { src: "/brookmere-02.webp", space: "food-beverage" },
+      { src: "/brookmere-03.webp", space: "guest-rooms" },
+      { src: "/brookmere-04.webp", space: "public-spaces" },
+      { src: "/brookmere-05.webp", space: "guest-rooms" },
+      { src: "/brookmere-06.webp", space: "food-beverage" },
     ],
   },
-
-  // Add others as you go...
+  {
+    slug: "la-roux",
+    title: "La Roux",
+    location: "New Orleans, LA",
+    cover: "/hospitality-project-2.webp",
+    scope:
+      "Boutique restaurant and bar concept centered around layered lighting and an approachable luxury atmosphere.",
+    designDrivers:
+      "Night-forward atmosphere, strong bar identity, and durable high-touch finishes.",
+    role:
+      "Design direction and hospitality planning, including front-of-house experience and seating mix.",
+    spaces: ["public-spaces", "food-beverage"],
+    images: [
+      { src: "/hospitality-project-2.webp", space: "food-beverage" },
+      { src: "/brookmere-02.webp", space: "food-beverage" },
+      { src: "/brookmere-04.webp", space: "public-spaces" },
+    ],
+  },
+  {
+    slug: "laurel-oak",
+    title: "Laurel Oak",
+    location: "New Orleans, LA",
+    cover: "/hospitality-project-4.webp",
+    scope:
+      "Hospitality renovation concept focused on arrival sequence, lounge transitions, and guest room refinement.",
+    designDrivers:
+      "Clear circulation, quiet premium guest rooms, and flexible public spaces for day/evening use.",
+    role: "Interior concept development, experience mapping, and phased project strategy.",
+    spaces: ["guest-rooms", "public-spaces"],
+    images: [
+      { src: "/hospitality-project-4.webp", space: "public-spaces" },
+      { src: "/brookmere-03.webp", space: "guest-rooms" },
+      { src: "/brookmere-06.webp", space: "public-spaces" },
+    ],
+  },
 ];

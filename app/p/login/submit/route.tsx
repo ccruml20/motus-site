@@ -14,21 +14,30 @@ function timingSafeEqual(a: string, b: string) {
   return crypto.timingSafeEqual(aa, bb);
 }
 
+function normalizedNextPath(nextPath: string) {
+  return nextPath.startsWith("/") ? nextPath : "/p";
+}
+
+function redirectUrl(req: Request, path: string) {
+  const origin = req.headers.get("origin") ?? req.url;
+  return new URL(path, origin);
+}
+
 export async function POST(req: Request) {
   const form = await req.formData();
   const password = String(form.get("password") ?? "");
-  const nextPath = String(form.get("next") ?? "/p");
+  const requestedPath = String(form.get("next") ?? "/p");
+  const nextPath = normalizedNextPath(requestedPath);
 
   const expected = env("PORTFOLIO_PASSWORD");
 
   if (!timingSafeEqual(password, expected)) {
-    const url = new URL("/p/login", req.url);
-    url.searchParams.set("next", nextPath);
+    const url = redirectUrl(req, nextPath);
     url.searchParams.set("error", "1");
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(url, 303);
   }
 
-  const res = NextResponse.redirect(new URL(nextPath, req.url));
+  const res = NextResponse.redirect(redirectUrl(req, nextPath), 303);
 
   res.cookies.set("motus_portfolio_auth", "1", {
     httpOnly: true,
