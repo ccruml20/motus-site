@@ -59,14 +59,19 @@ export default async function ProjectDetailPage({
                 <DetailBlock title="Description" body={project.scope} />
                 <DetailBlock title="Design Drivers" body={project.designDrivers} />
                 <DetailBlock title="Your Role" body={project.role} />
-                <MetaRow label="Gallery Images" value={`${project.images.length}`} />
+                <MetaRow label="Gallery Images" value={`${project.images.length + 1}`} />
               </div>
             </aside>
 
             <div className="lg:col-span-8">
               <SectionLabel className="mb-8">Gallery</SectionLabel>
 
-              <ProjectGallery title={project.title} cover={project.cover} images={project.images} />
+              <ProjectGallery
+                title={project.title}
+                cover={project.cover}
+                coverSpace={project.coverSpace}
+                images={project.images}
+              />
 
               <div className="mt-12 border-t border-black/10 pt-8">
                 <Link

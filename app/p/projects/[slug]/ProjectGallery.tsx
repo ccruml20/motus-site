@@ -7,15 +7,16 @@ import { type ProjectImage, type ProjectSpace, spaceLabels } from "../data";
 type ProjectGalleryProps = {
   title: string;
   cover: string;
+  coverSpace: ProjectSpace;
   images: ProjectImage[];
 };
 
 type SpaceFilter = "all" | ProjectSpace;
 
-export default function ProjectGallery({ title, cover, images }: ProjectGalleryProps) {
+export default function ProjectGallery({ title, cover, coverSpace, images }: ProjectGalleryProps) {
   const allImages = useMemo<ProjectImage[]>(
-    () => [{ src: cover, space: "public-spaces" }, ...images],
-    [cover, images],
+    () => [{ src: cover, space: coverSpace }, ...images.filter((image) => image.src !== cover)],
+    [cover, coverSpace, images],
   );
 
   const [activeFilter, setActiveFilter] = useState<SpaceFilter>("all");
@@ -34,7 +35,6 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
     return allImages.filter((image) => image.space === activeFilter);
   }, [activeFilter, allImages]);
 
-
   useEffect(() => {
     if (activeIndex === null) return;
 
@@ -44,7 +44,9 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
         setActiveIndex((prev) => (prev === null ? null : (prev + 1) % filteredImages.length));
       }
       if (event.key === "ArrowLeft") {
-        setActiveIndex((prev) => (prev === null ? null : (prev - 1 + filteredImages.length) % filteredImages.length));
+        setActiveIndex((prev) =>
+          prev === null ? null : (prev - 1 + filteredImages.length) % filteredImages.length,
+        );
       }
     };
 
@@ -55,11 +57,24 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
   return (
     <>
       <div className="mb-8 flex flex-wrap gap-3">
-        <FilterChip isActive={activeFilter === "all"} onClick={() => { setActiveFilter("all"); setActiveIndex(null); }}>
+        <FilterChip
+          isActive={activeFilter === "all"}
+          onClick={() => {
+            setActiveFilter("all");
+            setActiveIndex(null);
+          }}
+        >
           All Areas
         </FilterChip>
         {availableSpaces.map((space) => (
-          <FilterChip key={space} isActive={activeFilter === space} onClick={() => { setActiveFilter(space); setActiveIndex(null); }}>
+          <FilterChip
+            key={space}
+            isActive={activeFilter === space}
+            onClick={() => {
+              setActiveFilter(space);
+              setActiveIndex(null);
+            }}
+          >
             {spaceLabels[space]}
           </FilterChip>
         ))}
@@ -74,6 +89,7 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
             className={`relative overflow-hidden border border-black/10 bg-black/5 text-left ${
               index === 0 ? "md:col-span-2" : ""
             }`}
+            aria-label={`Open ${spaceLabels[image.space]} image ${index + 1}`}
           >
             <div className={`relative ${index === 0 ? "aspect-[16/8] min-h-[240px]" : "aspect-[4/3]"}`}>
               <Image
@@ -141,7 +157,9 @@ export default function ProjectGallery({ title, cover, images }: ProjectGalleryP
 
               <button
                 type="button"
-                onClick={() => setActiveIndex((prev) => (prev === null ? null : (prev + 1) % filteredImages.length))}
+                onClick={() =>
+                  setActiveIndex((prev) => (prev === null ? null : (prev + 1) % filteredImages.length))
+                }
                 className="border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white hover:bg-white hover:text-black"
               >
                 Next
@@ -167,6 +185,7 @@ function FilterChip({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={isActive}
       className={`border px-4 py-2 text-[10px] uppercase tracking-[0.22em] transition ${
         isActive
           ? "border-motusGold bg-motusGold text-black"
@@ -177,3 +196,5 @@ function FilterChip({
     </button>
   );
 }
+
+
