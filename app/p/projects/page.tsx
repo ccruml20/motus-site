@@ -77,10 +77,10 @@ export default async function PrivateProjectsPage({
               No projects matched your filter. Try selecting a different space.
             </p>
           ) : (
-            <div className="mt-10 grid gap-10 md:grid-cols-3">
+            <div className="mt-10 grid gap-10 md:grid-cols-2">
               {filtered.map((project) => (
                 <Link key={project.slug} href={`/p/projects/${project.slug}`} className="group block">
-                  <div className="relative aspect-[4/5] overflow-hidden">
+                  <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
                       src={project.cover}
                       alt={project.title}
