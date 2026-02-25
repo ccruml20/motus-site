@@ -16,7 +16,7 @@ export default async function PrivatePortfolioHome({
   return (
     <main className="bg-motusBg text-motusHeading min-h-screen">
       <section className="relative">
-        <div className="relative w-full h-[80vh] min-h-140 max-h-205 overflow-hidden">
+        <div className="relative w-full h-[100svh] min-h-[760px] overflow-hidden md:h-[80vh] md:min-h-[560px] md:max-h-[820px]">
           <Image
             src="/p-hero.webp"
             alt="Motus hospitality interior"
@@ -30,7 +30,7 @@ export default async function PrivatePortfolioHome({
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65" />
 
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-start justify-center pt-32 pb-12 md:items-center md:pt-0 md:pb-0">
             <Container>
               <div className="max-w-5xl mx-auto text-center">
                 <h1 className="font-heading text-[#F3EFE8] text-5xl md:text-6xl lg:text-7xl font-light tracking-[-0.01em] leading-[1.05]">
