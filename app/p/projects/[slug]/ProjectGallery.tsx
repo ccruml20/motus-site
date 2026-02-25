@@ -91,7 +91,7 @@ export default function ProjectGallery({ title, cover, coverSpace, images }: Pro
             }`}
             aria-label={`Open ${spaceLabels[image.space]} image ${index + 1}`}
           >
-            <div className={`relative ${index === 0 ? "aspect-[16/8] min-h-[240px]" : "aspect-[4/3]"}`}>
+            <div className={`relative ${index === 0 ? "aspect-[16/8] min-h-[240px]" : "aspect-[16/9]"}`}>
               <Image
                 src={image.src}
                 alt={`${title} gallery image ${index + 1}`}

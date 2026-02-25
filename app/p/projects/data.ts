@@ -87,16 +87,18 @@ export const projects: ProjectDetail[] = [
     title: "Laurel Oak",
     location: "New Orleans, LA",
     cover: "/hospitality-project-4.webp",
-    coverSpace: "public-spaces",
+    coverSpace: "food-beverage",
     scope:
       "Hospitality renovation concept focused on arrival sequence, lounge transitions, and guest room refinement.",
     designDrivers:
       "Clear circulation, quiet premium guest rooms, and flexible public spaces for day/evening use.",
     role: "Interior concept development, experience mapping, and phased project strategy.",
-    spaces: ["guest-rooms", "public-spaces"],
+    spaces: ["food-beverage"],
     images: [
-      { src: "/brookmere-03.webp", space: "guest-rooms" },
-      { src: "/brookmere-06.webp", space: "public-spaces" },
+      { src: "/laurel-01.webp", space: "food-beverage" },
+      { src: "/laurel-02.webp", space: "food-beverage" },
+      { src: "/laurel-03.webp", space: "food-beverage" },
+      { src: "/laurel-04.webp", space: "food-beverage" },
     ],
   },
 ];
